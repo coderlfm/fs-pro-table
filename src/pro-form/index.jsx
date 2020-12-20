@@ -1,21 +1,21 @@
 import React, { memo } from 'react';
-import { Form, Input, Button, Select, Space, Col, DatePicker,TimePicker  } from 'antd';
+import { Form, Input, Button, Select, Space, Col, DatePicker, TimePicker } from 'antd';
 import './index.less'
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-interface formPropsTpe {
-    search?: any,
-    config?: any,
-    layoutConfig?: any
-}
+// interface formPropsTpe {
+//     search?: any,
+//     config?: any,
+//     layoutConfig?: any
+// }
 
-interface propsType {
-    formProps?: any,
-    circle: Boolean,
-    submit: (any) => void
-}
+// interface propsType {
+//     formProps?: any,
+//     circle: Boolean,
+//     submit: (any) => void
+// }
 
 const tailLayout = {
     // wrapperCol: {
@@ -28,7 +28,7 @@ const tailLayout = {
     // }
 };
 
-export default memo((props: propsType) => {
+export default memo((props) => {
 
     const [form] = Form.useForm();
     const { formProps, submit, circle } = props
@@ -89,7 +89,7 @@ const renderForm = (search) => {
      */
     const renderFormEle = (type, searchProps) => {
         type = type.toLowerCase();
-        let ele: React.ReactElement;
+        let ele = null;
 
         switch (type) {
 
@@ -108,7 +108,7 @@ const renderForm = (search) => {
                 break;
 
             case 'timepicker ':
-                ele = <TimePicker  allowClear  {...searchProps} />
+                ele = <TimePicker allowClear  {...searchProps} />
                 break;
 
             default:

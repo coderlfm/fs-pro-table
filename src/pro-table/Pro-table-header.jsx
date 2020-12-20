@@ -2,21 +2,21 @@ import React, { memo, useState, useEffect } from 'react'
 import { Tabs, Button, Row, Col, Grid } from 'antd';
 import { DownOutlined } from '@ant-design/icons'
 
-import { tabsType } from './type'
+// import { tabsType } from './type'
 import './pro-table-header.less'
 
 const { TabPane } = Tabs;
 const { useBreakpoint } = Grid;
-interface HeaderProps {
-    title: string,
-    tabs: tabsType,
-    firstTabsChange: (key: string | number | undefined, value: string | number | undefined) => void,
-    secondTabsChange: (key: string | number | undefined, value: string | number | undefined) => void,
-}
+// interface HeaderProps {
+//     title: string,
+//     tabs: tabsType,
+//     firstTabsChange: (key: string | number | undefined, value: string | number | undefined) => void,
+//     secondTabsChange: (key: string | number | undefined, value: string | number | undefined) => void,
+// }
 
 const colSettingDefault = { xs: 12, sm: 8, md: 8, lg: 6, xl: 3, xxl: 2 }           // 列默认配置
 
-export default memo(function (props: HeaderProps) {
+export default memo(function (props) {
 
     const screens = useBreakpoint();
     const { title, tabs, firstTabsChange, secondTabsChange } = props

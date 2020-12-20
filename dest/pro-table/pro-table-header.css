@@ -1,0 +1,79 @@
+.pro-table-header-wrap {
+  font-weight: bolder;
+}
+.pro-table-header-wrap .ant-tabs-nav {
+  margin-bottom: 0;
+}
+.pro-table-header-wrap > h2 {
+  font-size: 20px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #000000;
+  line-height: 24px;
+  margin: 16px 0;
+}
+.pro-table-header-wrap > section {
+  padding: 0 24px;
+  background-color: #fff;
+}
+.pro-table-header-wrap > section .ant-tabs-nav {
+  height: 100%;
+}
+.pro-table-header-wrap .first {
+  border-radius: 4px;
+  margin-bottom: 5px;
+  height: 58px;
+  display: flex;
+  font-weight: 600;
+}
+.pro-table-header-wrap .first .ant-tabs-tab-btn {
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 22px;
+}
+.pro-table-header-wrap .first .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #1890FF !important;
+  font-weight: 600!important;
+}
+.pro-table-header-wrap .first .ant-tabs-ink-bar {
+  height: 4px;
+  background: linear-gradient(315deg, #35FCFF 0%, #0443FC 100%);
+  border-radius: 2px;
+}
+.pro-table-header-wrap .second {
+  min-height: 48px;
+  padding-top: 10px;
+  display: flex;
+  font-weight: 500;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.pro-table-header-wrap .second .second-content {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+.pro-table-header-wrap .second .second-content .second-btn {
+  border-radius: 12px;
+  margin: 0 14px;
+  color: rgba(0, 0, 0, 0.65);
+}
+.pro-table-header-wrap .second .second-content .ant-btn-primary {
+  color: #fff;
+}
+.pro-table-header-wrap .second .toggle-wrap {
+  display: flex;
+}
+.pro-table-header-wrap .second .toggle-wrap .anticon-down {
+  color: #1890ff;
+}
+.pro-table-header-wrap .second .toggle-wrap button {
+  padding-top: 0;
+}
+.pro-table-header-wrap .second .toggle-wrap button .anticon-down {
+  line-height: 0;
+}
+.pro-table-header-wrap .second .toggle-wrap button .anticon-down > svg {
+  line-height: 0;
+}

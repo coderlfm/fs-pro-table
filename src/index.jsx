@@ -1,17 +1,15 @@
-import React, { memo, useState, useEffect, useLayoutEffect } from 'react'
+import React,{ memo, useState, useEffect } from 'react'
 import { Table, message } from 'antd';
-import { useSelector, shallowEqual } from 'react-redux'
 
 
-import Form from '../pro-form'
-import ProTableHeader from './Pro-table-header'
-import request from '../../services/request'
+import Form from './pro-form/index.jsx'
+import ProTableHeader from './pro-table/Pro-table-header.jsx'
+// import request from '../../services/request'
 
-import { tableDataType, reqType, propsType } from './type'
 import './index.less'
 
 
-const tableDataDefault: tableDataType = {
+const tableDataDefault = {
     list: [],
     page: 1,
     page_size: 10
@@ -29,14 +27,13 @@ function onChange(pagination, filters, sorter, extra) {
     console.log('params', pagination, filters, sorter, extra);
 }
 
-export default memo(function (props: propsType): React.ReactElement {
+export default memo(function (props) {
 
-    const { tabs, title, tableTools, preSubmit, requestData } = props
+    const { tabs, title, tableTools, preSubmit, requestData ,request} = props
 
-    const layout = useSelector(state => state.layout.sectionList, shallowEqual)
     const [tableData, setTableData] = useState(tableDataDefault)    //表格数据
-    const [selectRows, setSelectRows] = useState([]); // 被选中的行数据对象数组
-    const [selectRowKeys, setSelectRowKeys] = useState([]); // 被选中行的keys
+    const [selectRows, setSelectRows] = useState([]);               // 被选中的行数据对象数组
+    const [selectRowKeys, setSelectRowKeys] = useState([]);         // 被选中行的keys
     const [reqData, setReqData] = useState({ ...reqDataDefault, ...requestData })
     const [loading, setLoading] = useState(true)                    //loading
 
@@ -193,7 +190,7 @@ export default memo(function (props: propsType): React.ReactElement {
  * @param tableTools 表格tools工具栏配置 
  * @param selectRows 当前选中行数据
  */
-const renderTools = (tableTools: propsType['tableTools'], selectRows) => {
+const renderTools = (tableTools, selectRows) => {
 
     return (
         <div className="pro-table-tools">
