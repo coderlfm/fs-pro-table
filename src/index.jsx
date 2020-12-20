@@ -2,8 +2,8 @@ import React,{ memo, useState, useEffect } from 'react'
 import { Table, message } from 'antd';
 
 
-import Form from './pro-form/index.jsx'
-import ProTableHeader from './pro-table/Pro-table-header.jsx'
+import Form from './pro-form/'
+import ProTableHeader from './pro-table/Pro-table-header'
 // import request from '../../services/request'
 
 import './index.less'

@@ -27,11 +27,11 @@ var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/sli
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _index = _interopRequireDefault(require("./pro-form/index.jsx"));
+var _index = _interopRequireDefault(require("./pro-form/index.js"));
 
-var _ProTableHeader = _interopRequireDefault(require("./pro-table/Pro-table-header.jsx"));
+var _ProTableHeader = _interopRequireDefault(require("./pro-table/Pro-table-header.js"));
 
-require("./index.less");
+require("./index.css");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
