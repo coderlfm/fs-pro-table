@@ -3,7 +3,7 @@ import { Tabs, Button, Row, Col, Grid } from 'antd';
 import { DownOutlined } from '@ant-design/icons'
 
 // import { tabsType } from './type'
-import './pro-table-header.less'
+import './pro-table-header.css'
 
 const { TabPane } = Tabs;
 const { useBreakpoint } = Grid;

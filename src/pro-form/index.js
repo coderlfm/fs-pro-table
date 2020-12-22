@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Form, Input, Button, Select, Space, Col, DatePicker, TimePicker } from 'antd';
-import './index.less'
+import './index.css'
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;

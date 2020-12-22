@@ -2,11 +2,11 @@ import React,{ memo, useState, useEffect } from 'react'
 import { Table, message } from 'antd';
 
 
-import Form from './pro-form/'
-import ProTableHeader from './pro-table/Pro-table-header'
+import Form from './pro-form/index.js'
+import ProTableHeader from './pro-table/Pro-table-header.js'
 // import request from '../../services/request'
 
-import './index.less'
+import './index.css'
 
 
 const tableDataDefault = {
@@ -70,7 +70,7 @@ export default memo(function (props) {
      * 此处可过滤数据并可等待其中异步操作，所以此过滤需要返回一个promise
      */
     const submit = async values => {
-        let submitValue = { ...reqData, search: values }
+        let submitValue = { ...reqData, search: { ...reqData.search, ...values } }
         if (typeof preSubmit === 'function') {
             submitValue = await preSubmit(submitValue)
             console.log('submitValue', submitValue);

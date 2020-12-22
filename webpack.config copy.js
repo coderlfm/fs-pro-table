@@ -7,7 +7,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   mode: "none", //打包为开发模式
   // entry:'./pro-table/index.jsx', //入口文件路径
-  entry: "./test.js",
+  entry: "./src/index.js",
   // entry: {
   //   index: "./src/index.js",
   //   ProTableHeader: "./src/pro-table/Pro-table-header.js",
@@ -15,7 +15,7 @@ module.exports = {
   // },
   output: {
     //输出路径和文件名，使用path模块resolve方法将输出路径解析为绝对路径
-    path: path.resolve(__dirname, "./"), //将js文件打包到dist/js的目录
+    path: path.resolve(__dirname, "./dist"), //将js文件打包到dist/js的目录
     filename: "[name].js",
     libraryExport: "default",
     library:"ProTable",
@@ -31,7 +31,6 @@ module.exports = {
         test: /\.js[x]?$/,  // 用正则来匹配文件路径，这段意思是匹配 js 或者 jsx
         exclude: /node_modules/,
         include: [path.resolve(__dirname, 'src')],
-        exclude:path.resolve(__dirname, 'node_modules'),
         loader: 'babel-loader' // 加载模块 "babel-loader" 
       },
       {

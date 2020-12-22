@@ -159,7 +159,7 @@ var _default = /*#__PURE__*/(0, _react.memo)(function (props) {
           switch (_context2.prev = _context2.next) {
             case 0:
               submitValue = _objectSpread(_objectSpread({}, reqData), {}, {
-                search: values
+                search: _objectSpread(_objectSpread({}, reqData.search), values)
               });
 
               if (!(typeof preSubmit === 'function')) {
