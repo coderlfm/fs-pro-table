@@ -24,7 +24,7 @@ const reqDataDefault = {                        //请求参数
 
 
 function onChange(pagination, filters, sorter, extra) {
-    console.log('params', pagination, filters, sorter, extra);
+    // console.log('params', pagination, filters, sorter, extra);
 }
 
 export default memo(function (props) {
@@ -42,7 +42,7 @@ export default memo(function (props) {
      * 请求数据
      */
     useEffect(() => {
-        console.log('reqData');
+        // console.log('reqData');
 
         initData()
     }, [reqData, props.reset])
@@ -73,7 +73,7 @@ export default memo(function (props) {
         let submitValue = { ...reqData, search: { ...reqData.search, ...values } }
         if (typeof preSubmit === 'function') {
             submitValue = await preSubmit(submitValue)
-            console.log('submitValue', submitValue);
+            // console.log('submitValue', submitValue);
 
         }
         setReqData(submitValue);
@@ -85,7 +85,7 @@ export default memo(function (props) {
      * @param page_size 
      */
     const handlePageChange = (page, page_size) => {
-        console.log(page, page_size);
+        // console.log(page, page_size);
         setReqData({ ...reqData, page, page_size });
     }
 
@@ -143,7 +143,7 @@ export default memo(function (props) {
             return;
         }
         setReqData(reqValue)
-        console.log('secondTabsChange', key, value);
+        // console.log('secondTabsChange', key, value);
     }
 
     // 多选配置

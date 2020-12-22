@@ -50,8 +50,7 @@ var reqDataDefault = {
   sort: {}
 };
 
-function onChange(pagination, filters, sorter, extra) {
-  console.log('params', pagination, filters, sorter, extra);
+function onChange(pagination, filters, sorter, extra) {// console.log('params', pagination, filters, sorter, extra);
 }
 
 var _default = /*#__PURE__*/(0, _react.memo)(function (props) {
@@ -96,7 +95,7 @@ var _default = /*#__PURE__*/(0, _react.memo)(function (props) {
 
 
   (0, _react.useEffect)(function () {
-    console.log('reqData');
+    // console.log('reqData');
     initData();
   }, [reqData, props.reset]);
   /**
@@ -163,7 +162,7 @@ var _default = /*#__PURE__*/(0, _react.memo)(function (props) {
               });
 
               if (!(typeof preSubmit === 'function')) {
-                _context2.next = 6;
+                _context2.next = 5;
                 break;
               }
 
@@ -172,12 +171,11 @@ var _default = /*#__PURE__*/(0, _react.memo)(function (props) {
 
             case 4:
               submitValue = _context2.sent;
-              console.log('submitValue', submitValue);
 
-            case 6:
+            case 5:
               setReqData(submitValue);
 
-            case 7:
+            case 6:
             case "end":
               return _context2.stop();
           }
@@ -197,7 +195,7 @@ var _default = /*#__PURE__*/(0, _react.memo)(function (props) {
 
 
   var handlePageChange = function handlePageChange(page, page_size) {
-    console.log(page, page_size);
+    // console.log(page, page_size);
     setReqData(_objectSpread(_objectSpread({}, reqData), {}, {
       page: page,
       page_size: page_size
@@ -272,8 +270,7 @@ var _default = /*#__PURE__*/(0, _react.memo)(function (props) {
       return;
     }
 
-    setReqData(reqValue);
-    console.log('secondTabsChange', key, value);
+    setReqData(reqValue); // console.log('secondTabsChange', key, value);
   }; // 多选配置
 
 
