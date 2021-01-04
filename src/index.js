@@ -1,4 +1,4 @@
-import React,{ memo, useState, useEffect } from 'react'
+import React, { memo, useState, useEffect } from 'react'
 import { Table, message } from 'antd';
 
 
@@ -29,7 +29,7 @@ function onChange(pagination, filters, sorter, extra) {
 
 export default memo(function (props) {
 
-    const { tabs, title, tableTools, preSubmit, requestData ,request} = props
+    const { tabs, title, tableTools, preSubmit, requestData, request } = props
 
     const [tableData, setTableData] = useState(tableDataDefault)    //表格数据
     const [selectRows, setSelectRows] = useState([]);               // 被选中的行数据对象数组
@@ -55,7 +55,7 @@ export default memo(function (props) {
     const initData = async (data = reqData) => {
         !loading && setLoading(true)
 
-        const res = await request({ url: props.url, method: 'post', data })
+        const res = await request({ url: props.url, method: 'post', data:{...reqData, ...requestData }  })
         if (res.code === 0) {
             setTableData({ ...tableData, ...res.data })
         } else {
