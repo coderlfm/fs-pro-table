@@ -6,7 +6,7 @@ const { src, dest, series, parallel } = require('gulp');
 const less = require('gulp-less')
 const uglifyCss = require('gulp-clean-css');
 
-const concat = require('gulp-concat')
+// const concat = require('gulp-concat')
 
 const babel = require("gulp-babel");
 
@@ -25,22 +25,21 @@ const uglify = require('gulp-uglify');
 
 
 //压缩合并css
-function css(cb) {
-    // cb();
-    return src('src-product/**/*.less')
+function css() {
+    return src('src/**/*.less')
         .pipe(less())
         .pipe(uglifyCss())
         .pipe(dest('dist'));
 }
 
-
 /**
- * 编译js
- * @param {*} cb 
+ * 编译ts
+ * 
  */
-function js(cb) {
-    return src('dist-ts/**/*.js')
-        .pipe(babel())
+function compile() {
+    return tsProject.src()
+        .pipe(tsProject())
+        .js.pipe(babel())
         .pipe(babel({
             presets: [
                 "@babel/preset-react", ["@babel/preset-env"],
@@ -61,55 +60,9 @@ function js(cb) {
             ]
         }))
         .pipe(uglify())
-        .pipe(dest('dist'));
-    // cb();
+        .pipe(dest('dist'))
 }
 
-/**
- * 编译ts
- * @param {*} cb 
- */
-function tsCompile(cb) {
-    return tsProject.src()
-        .pipe(tsProject())
-        .js.pipe(dest('dist-ts'))
-}
 
-// function tsToJs() {
-
-//     return browserify({
-//         basedir: '.',
-//         debug: true,
-//         entries: ['src-product/pro-table/index.tsx', 'src-product/pro-table/Pro-table-header.tsx'],
-//         cache: {},
-//         packageCache: {}
-//     })
-//         .plugin(tsify)
-//         .transform('babelify', {
-//             presets: ['es2015'],
-//             extensions: ['.ts']
-//         })
-//         .bundle()
-//         .pipe(source('bundle.js'))
-//         .pipe(buffer())
-//         .pipe(sourcemaps.init({
-//             loadMaps: true
-//         }))
-//         .pipe(uglify())
-//         .pipe(sourcemaps.write('./'))
-//         .pipe(dest('dist'));
-// }
-
-
-function defaultTask(cb) {
-    // place code for your default task here
-    cb();
-}
-
-// exports.build = series(tsToJs, parallel(css, js))
-
-exports.buildCss = series(css)
-exports.buildJs = series(js)
-exports.buildTs = series(tsCompile)
-
-exports.default = defaultTask
+exports.build = series(compile, css)
+exports.default = series(compile, css)

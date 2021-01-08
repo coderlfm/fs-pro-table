@@ -42,6 +42,8 @@ export interface propsTpe {
         data: Array<tabsDataType>
     },
 
+    request:any
+
     // 表单配置
     formProps: any,
 
