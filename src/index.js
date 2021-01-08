@@ -1,6 +1,6 @@
 import React, { memo, useState, useEffect } from 'react'
-import { Table, message } from 'antd';
-
+import { Table, message, ConfigProvider } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
 
 import Form from './pro-form/index.js'
 import ProTableHeader from './pro-table/Pro-table-header.js'
@@ -55,7 +55,7 @@ export default memo(function (props) {
     const initData = async (data = reqData) => {
         !loading && setLoading(true)
 
-        const res = await request({ url: props.url, method: 'post', data:{...reqData, ...requestData }  })
+        const res = await request({ url: props.url, method: 'post', data: { ...reqData, ...requestData } })
         if (res.code === 0) {
             setTableData({ ...tableData, ...res.data })
         } else {
@@ -161,26 +161,28 @@ export default memo(function (props) {
 
 
     return (
-        <div className="pro-table-wrap">
-            <ProTableHeader title={title} tabs={tabs} firstTabsChange={firstTabsChange} secondTabsChange={secondTabsChange} />
+        <ConfigProvider locale={zhCN}>
+            <div className="pro-table-wrap">
+                <ProTableHeader title={title} tabs={tabs} firstTabsChange={firstTabsChange} secondTabsChange={secondTabsChange} />
 
-            { props.formProps ? <Form formProps={props.formProps} submit={submit} circle={(tabs && tabs.secondTabs) ? false : true} /> : null}
+                {props.formProps ? <Form formProps={props.formProps} submit={submit} circle={(tabs && tabs.secondTabs) ? false : true} /> : null}
 
-            <div className="pro-table-body-wrap">
+                <div className="pro-table-body-wrap">
 
-                {tableTools && renderTools(tableTools, selectRows)}
-                <Table
-                    columns={props.columns}
-                    dataSource={tableData.list}
-                    rowKey={props.rowKey}
-                    rowSelection={props.row && rowSelection}
-                    size="middle"
-                    onChange={onChange}
-                    loading={loading}
-                    pagination={pagination}
-                />
+                    {tableTools && renderTools(tableTools, selectRows)}
+                    <Table
+                        columns={props.columns}
+                        dataSource={tableData.list}
+                        rowKey={props.rowKey}
+                        rowSelection={props.row && rowSelection}
+                        size="middle"
+                        onChange={onChange}
+                        loading={loading}
+                        pagination={pagination}
+                    />
+                </div>
             </div>
-        </div>
+        </ConfigProvider>
     )
 })
 

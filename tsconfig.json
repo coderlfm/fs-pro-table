@@ -1,0 +1,14 @@
+{
+    "files": [
+        "src-product/pro-table/index.tsx",
+        "src-product/pro-table/Pro-table-header.tsx",
+        "src-product/pro-form/index.tsx",
+    ],
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "jsx": "react",
+        "moduleResolution":"Node",
+        "target": "es6"
+    }
+}
