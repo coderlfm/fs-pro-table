@@ -1,5 +1,6 @@
 {
     "files": [
+        "src/index.ts",
         "src/pro-table/index.tsx",
         "src/pro-table/Pro-table-header.tsx",
         "src/pro-form/index.tsx",
@@ -8,7 +9,7 @@
         "noImplicitAny": false,
         "esModuleInterop": true,
         "jsx": "react",
-        "moduleResolution":"Node",
+        "moduleResolution": "Node",
         "target": "es6"
     }
 }

@@ -8,6 +8,7 @@ const uglifyCss = require('gulp-clean-css');
 
 // const concat = require('gulp-concat')
 
+const replace = require('gulp-replace');
 const babel = require("gulp-babel");
 
 // 编译ts
@@ -60,6 +61,7 @@ function compile() {
             ]
         }))
         .pipe(uglify())
+        .pipe(replace('.less', '.css'))
         .pipe(dest('dist'))
 }
 
