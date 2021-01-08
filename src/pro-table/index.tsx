@@ -82,6 +82,8 @@ export default memo(function (props: propsType): React.ReactElement {
         const res = await request({ url: props.url, method: 'post', data: { ...reqData, ...requestData } })
         if (res.code === 0) {
             setTableData({ ...tableData, ...res.data })
+        } else if (res.code === '0') {
+            setTableData({ ...tableData, ...res.result })
         } else {
             message.warning(res.msg || '请求超时')
         }
